@@ -1,0 +1,4 @@
+<resources>
+    <string name="home_helper_label">Mountain TV Home helper</string>
+    <string name="home_helper_description">Open Mountain TV when the original TV home appears. Only window names from the original launcher and Google search are checked. Screen text, remote keys, streaming apps and account data are not read or sent. The small dot pauses redirection; open Mountain TV from Apps to resume.</string>
+</resources>

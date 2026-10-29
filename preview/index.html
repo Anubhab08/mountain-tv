@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Mountain Home — TV design preview</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <svg class="symbols" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="search-icon" viewBox="0 0 24 24"><circle cx="10.75" cy="10.75" r="6.75"/><path d="m16 16 4.5 4.5"/></symbol>
+    <symbol id="wifi-icon" viewBox="0 0 24 24"><path d="M3 9a15 15 0 0 1 18 0M6.5 12.5a9.5 9.5 0 0 1 11 0M10 16a3.6 3.6 0 0 1 4 0"/><circle cx="12" cy="19" r=".7" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="mountain-icon" viewBox="0 0 44 32"><path d="m2 27 13-20 9 14 6-9 12 15H2Z"/><path d="m10 15 5 3 4-3"/></symbol>
+    <symbol id="close-icon" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+    <symbol id="arrow-icon" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6"/></symbol>
+    <symbol id="check-icon" viewBox="0 0 24 24"><path d="m5 12 4 4 10-10"/></symbol>
+    <filter id="white-hotstar-mark" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  2.4 2.4 2.4 0 -4.2"/></filter>
+  </svg>
+  <main class="home" aria-label="TV home screen">
+    <div class="landscape" aria-hidden="true"></div>
+    <div class="shade" aria-hidden="true"></div>
+    <header class="topbar">
+      <nav class="utilities" aria-label="TV utilities">
+        <button class="utility" id="search-button" data-row="top" aria-label="Open Google search"><svg><use href="#search-icon"/></svg><span>Search</span></button>
+        <div class="status-utilities">
+          <button class="utility stock-home" id="stock-home-button" data-row="top" aria-label="Open original TV home" title="Open original TV home"><span class="home-dot" aria-hidden="true"></span></button>
+          <button class="utility wifi" id="wifi-button" data-row="top" aria-label="Wi-Fi settings" aria-haspopup="dialog"><svg><use href="#wifi-icon"/></svg></button>
+          <span class="clock" id="clock" aria-label="Current time"></span>
+        </div>
+      </nav>
+    </header>
+    <section class="favourites" aria-label="Favourite apps">
+      <div class="dock" id="dock">
+        <button class="app" data-app="youtube" data-row="apps" aria-label="Open YouTube"><span class="app-card youtube"><img class="youtube-brand" src="../assets/brand-marks/youtube-play.svg" alt="" draggable="false"></span></button>
+        <button class="app" data-app="prime" data-row="apps" aria-label="Open Prime Video"><span class="app-card prime"><img class="prime-brand" src="../assets/brand-marks/prime.svg" alt="" draggable="false"></span></button>
+        <button class="app" data-app="sonyliv" data-row="apps" aria-label="Open Sony LIV"><span class="app-card sonyliv"><img class="sony-brand" src="../assets/brand-marks/sonyliv.png" alt="" draggable="false"></span></button>
+        <button class="app" data-app="music" data-row="apps" aria-label="Open YouTube Music"><span class="app-card music"><img class="music-brand" src="../assets/brand-marks/youtubemusic.svg" alt="" draggable="false"></span></button>
+        <button class="app" data-app="hotstar" data-row="apps" aria-label="Open JioHotstar"><span class="app-card hotstar"><img class="hotstar-brand" src="../assets/brand-marks/hotstar.png" alt="" draggable="false"></span></button>
+        <button class="app" data-app="apple" data-row="apps" aria-label="Open Apple TV"><span class="app-card apple"><img class="apple-brand" src="../assets/brand-marks/appletv.svg" alt="" draggable="false"></span></button>
+        <button class="app" data-app="netflix" data-row="apps" aria-label="Open Netflix"><span class="app-card banner netflix"><img src="../assets/installed-banners/netflix.png" alt="" draggable="false"></span></button>
+        <button class="app" data-app="zee5" data-row="apps" aria-label="Open ZEE5"><span class="app-card banner zee5"><img src="../assets/installed-banners/zee5.png" alt="" draggable="false"></span></button>
+        <button class="app" data-app="spotify" data-row="apps" aria-label="Open Spotify"><span class="app-card banner spotify"><img src="../assets/installed-banners/spotify.png" alt="" draggable="false"></span></button>
+        <button class="app" data-app="movies" data-row="apps" aria-label="Open Google Play Movies"><span class="app-card banner movies"><img src="../assets/installed-banners/movies.png" alt="" draggable="false"></span></button>
+        <button class="app" data-app="livetv" data-row="apps" aria-label="Open Live TV"><span class="app-card banner livetv"><img src="../assets/installed-banners/livetv.png" alt="" draggable="false"></span></button>
+        <button class="app" data-app="playstore" data-row="apps" aria-label="Open Google Play Store"><span class="app-card banner playstore"><img src="../assets/installed-banners/playstore.png" alt="" draggable="false"></span></button>
+      </div>
+    </section>
+
+  </main>
+
+  <dialog class="panel wifi-panel" id="wifi-dialog" aria-labelledby="wifi-heading">
+    <div class="panel-head"><span class="panel-kicker">CONNECTION</span><button class="icon-button close-dialog" aria-label="Close Wi-Fi"><svg><use href="#close-icon"/></svg></button></div>
+    <div class="wifi-orb"><svg><use href="#wifi-icon"/></svg></div>
+    <h2 id="wifi-heading">A little connection.</h2>
+    <p class="panel-description">One shortcut to your TV’s Wi-Fi settings.</p>
+    <div class="connection-note"><svg><use href="#wifi-icon"/></svg><div><strong>Network &amp; Internet</strong><p>Connect, switch networks, or check your connection.</p></div></div>
+    <button class="primary-button" id="open-wifi-settings">Open Wi-Fi settings <svg><use href="#arrow-icon"/></svg></button>
+    <p class="preview-note">This is a browser preview. Wi-Fi settings open on your Google TV after installing the launcher.</p>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"><span class="toast-icon"><svg><use href="#check-icon"/></svg></span><span id="toast-message"></span></div>
+  <script src="corners.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

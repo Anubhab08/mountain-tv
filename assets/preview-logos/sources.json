@@ -1,0 +1,26 @@
+{
+  "youtube": {
+    "page": "https://play.google.com/store/apps/details?id=com.google.android.youtube.tv&hl=en",
+    "image": "https://play-lh.googleusercontent.com/OzCC2CEwKggMTTeFt_uAZ4Hp9W6b5_cGy29Pk36V-gAgh_w2ldR_2dVzo4B-7nClDUxo_mvkMG6LJ9o--ccvIw=s0-br30"
+  },
+  "prime": {
+    "page": "https://play.google.com/store/apps/details?id=com.amazon.amazonvideo.livingroom&hl=en",
+    "image": "https://play-lh.googleusercontent.com/qyXqjzPggunbifX0ODhCehdy4ei0F90u0N3f4pPk8NhgCZD75dH8bdQYPROGRVlTVOs8B8JAT58X6ImMZv5ugHg=s0-br30"
+  },
+  "sonyliv": {
+    "page": "https://play.google.com/store/apps/details?id=com.sonyliv&hl=en",
+    "image": "https://play-lh.googleusercontent.com/OSPwLdQHHx16DNvMT8GxkBvpzj5x9WG9_DmJoTMS1YKKbg1YsQlfzTLzc-XTkCLaF9FT7-I-kX9RvSUxSAwYRA=s0-br30"
+  },
+  "music": {
+    "page": "https://play.google.com/store/apps/details?id=com.google.android.apps.youtube.music&hl=en",
+    "image": "https://play-lh.googleusercontent.com/MyptZXmcCyF59phIWPsNCfHq6zSO_ojEdw_4rMYYWPOGdikSjqeOXcoszBZ053VYpINe5K7ZR9KV1nkFWgxdOw=s0-br30"
+  },
+  "hotstar": {
+    "page": "https://play.google.com/store/apps/details?id=in.startv.hotstar&hl=en",
+    "image": "https://play-lh.googleusercontent.com/02xiO0ptbXjD8NR3sbS2StP1P9aytDN56dDR15zqM_i66Vwq5W_hD-98CoFxvRVoUS4uV_xMSv-iQh3nQFeDeQ=s0-br30"
+  },
+  "apple": {
+    "page": "https://play.google.com/store/apps/details?id=com.apple.atve.androidtv.appletv&hl=en",
+    "image": "https://play-lh.googleusercontent.com/T5tmhzEpX3GPMVcQpOsSLuOz3WRjOdmvJaZ5Rs-6jDZKBGv5qGWdqfTK3Pvz9YZXUmLpBbhUzt2XBvBrnekuDw=s0-br30"
+  }
+}

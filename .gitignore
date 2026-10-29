@@ -1,0 +1,21 @@
+# Local tools, credentials and build output
+.DS_Store
+**/.DS_Store
+.idea/
+*.iml
+**/.gradle/
+**/build/
+**/local.properties
+.env
+.env.*
+*.keystore
+*.jks
+*.pem
+*.key
+*.log
+*.hprof
+__pycache__/
+*.pyc
+work/
+.agents/
+.codex/

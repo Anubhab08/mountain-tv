@@ -1,0 +1,77 @@
+[
+  {
+    "id": "youtube",
+    "previewFile": "youtube.svg",
+    "nativeResource": "brand_youtube",
+    "format": "svg",
+    "displayFill": "#FFFFFF",
+    "sourceBrandColor": "#FF0000",
+    "source": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/youtube.svg",
+    "brandSource": "https://www.youtube.com/howyoutubeworks/resources/brand-resources/#logos-icons-and-colors",
+    "license": "CC0-1.0"
+  },
+  {
+    "id": "youtubemusic",
+    "previewFile": "youtubemusic.svg",
+    "nativeResource": "brand_youtubemusic",
+    "format": "svg",
+    "displayFill": "#FFFFFF",
+    "sourceBrandColor": "#FF0000",
+    "source": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/youtubemusic.svg",
+    "brandSource": "https://partnermarketinghub.withgoogle.com/#/brands",
+    "license": "CC0-1.0"
+  },
+  {
+    "id": "prime",
+    "previewFile": "prime.svg",
+    "nativeResource": "brand_prime",
+    "format": "svg",
+    "displayFill": "#FFFFFF",
+    "sourceBrandColor": "#1F2E3E",
+    "source": "https://raw.githubusercontent.com/simple-icons/simple-icons/14.0.0/icons/primevideo.svg",
+    "brandSource": "https://videodirect.amazon.com/home/help?topicId=GT7W7GJBTDJW6Z8W#G8T2JFQZXPMHJLRZ",
+    "license": "CC0-1.0"
+  },
+  {
+    "id": "appletv",
+    "previewFile": "appletv.svg",
+    "nativeResource": "brand_appletv",
+    "format": "svg",
+    "displayFill": "#FFFFFF",
+    "sourceBrandColor": "#000000",
+    "source": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/appletv.svg",
+    "brandSource": "https://en.wikipedia.org/wiki/File:Apple_TV_(logo).svg",
+    "license": "CC0-1.0"
+  },
+  {
+    "id": "sonyliv",
+    "previewFile": "sonyliv.png",
+    "nativeResource": "brand_sonyliv",
+    "format": "png",
+    "displayFill": "original, unchanged",
+    "source": "https://play-lh.googleusercontent.com/OSPwLdQHHx16DNvMT8GxkBvpzj5x9WG9_DmJoTMS1YKKbg1YsQlfzTLzc-XTkCLaF9FT7-I-kX9RvSUxSAwYRA=s0-br30",
+    "brandSource": "https://play.google.com/store/apps/details?id=com.sonyliv&hl=en",
+    "license": "Provider trademark/artwork; no open-content license represented"
+  },
+  {
+    "id": "hotstar",
+    "previewFile": "hotstar.png",
+    "nativeResource": "brand_hotstar",
+    "format": "png",
+    "displayFill": "original, unchanged",
+    "source": "https://play-lh.googleusercontent.com/02xiO0ptbXjD8NR3sbS2StP1P9aytDN56dDR15zqM_i66Vwq5W_hD-98CoFxvRVoUS4uV_xMSv-iQh3nQFeDeQ=s0-br30",
+    "brandSource": "https://play.google.com/store/apps/details?id=in.startv.hotstar&hl=en",
+    "license": "Provider trademark/artwork; no open-content license represented"
+  },
+  {
+    "id": "youtube-play",
+    "previewFile": "youtube-play.svg",
+    "nativeResource": "brand_youtube_play",
+    "format": "svg",
+    "displayFill": "#FFFFFF",
+    "sourceBrandColor": "#FF0000",
+    "source": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/youtube.svg",
+    "derivation": "Play triangle subpath only; uniformly scaled to height 16 and translated inside a 24x24 viewport. The full source mark is preserved in youtube.svg.",
+    "license": "CC0-1.0"
+  }
+]
