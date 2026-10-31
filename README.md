@@ -1,27 +1,30 @@
 # Mountain TV
 
-A minimal Android TV home screen with twelve app shortcuts, a mountain wallpaper, frosted glass, a pill-shaped Search button, Wi-Fi settings and a clock. Version **0.6.2**.
+A minimal Android TV home screen with twelve app shortcuts, a mountain wallpaper, frosted glass, a pill-shaped Search button, Wi-Fi and Bluetooth shortcuts and a clock. Version **0.6.4**.
 
-![Mountain TV running on Android TV](preview/tv-search-pill.png)
+![Mountain TV running on Android TV](preview/tv-apple-style-controls.png)
 
 ## Features
 
 - YouTube, Prime Video, Sony LIV, YouTube Music, JioHotstar, Apple TV, Netflix, ZEE5, Spotify, Google Play Movies, Live TV and Google Play Store. Only installed apps appear; no streaming apps are installed automatically.
+- The optional helper handles physical Home presses directly; the user confirmed Mountain TV opens without the old home appearing first. Other keys pass through, and the original-home dot still pauses handling.
+- Apple-style custom Wi-Fi and Bluetooth vector icons, matched between the TV and browser preview.
 - Native Java views, fixed card proportions, continuous card corners, smooth focus transitions and shared static Google Sans fonts.
 - Cached wallpaper blur on the dock and fully rounded Search control, including on Android 10.
 - Google’s existing search opens in typing mode. Google handles voice input, title results, availability and provider launching. Hold Search for voice.
+- Bluetooth beside Wi-Fi opens the native Remotes & Accessories panel. On the tested Android 10 firmware, the enabled Home helper selects that menu entry once after the click. Without the helper, the shortcut opens Settings for manual selection.
 - No ads, recommendation feed, API credentials or companion server. The launcher does not request INTERNET or RECORD_AUDIO permission.
 - A small dot beside Wi-Fi opens the original home and pauses the optional Home helper. Reopen Mountain TV from Apps to resume.
 
 ## Download and install
 
-The private-testing APK is [MountainTV-0.6.2-debug.apk](dist/MountainTV-0.6.2-debug.apk). Verify it against [SHA256SUMS.txt](dist/SHA256SUMS.txt).
+The private-testing APK is [MountainTV-0.6.4-debug.apk](dist/MountainTV-0.6.4-debug.apk). Verify it against [SHA256SUMS.txt](dist/SHA256SUMS.txt).
 
 1. Enable developer debugging on the TV and connect with Android platform-tools.
 2. Install the APK alongside the original launcher:
 
    ```sh
-   adb install -r dist/MountainTV-0.6.2-debug.apk
+   adb install -r dist/MountainTV-0.6.4-debug.apk
    adb shell am start -n com.anubhab.mountaintv/.MainActivity
    ```
 
@@ -47,13 +50,13 @@ The included wrapper uses Gradle 8.9 with a pinned distribution checksum. Output
 
 The optional Accessibility service redirects the exact stock Home activity when firmware prevents choosing another default. Its package filter is restricted to the selected stock launcher and Google search, so intermediate search transitions can settle before redirection.
 
-It receives window-state metadata only. It does not retrieve screen text, filter remote keys, capture screenshots, perform gestures or transmit accessibility data. Android reports capabilities 0. Switch off the service in Accessibility to stop redirection. The return dot pauses it until Mountain TV is reopened.
+Home redirection receives window-state metadata from the stock launcher and Google search. After a Bluetooth click, the helper temporarily listens only to TV Settings and looks up the exact Remotes & Accessories menu label. It selects that entry once, then restores the original event filter; the request also expires after eight seconds or is cancelled on return. Android reports capabilities 9 (content retrieval and key filtering). The helper consumes only Home key events, passes other keys through and stores or transmits no key events. Short Home opens Mountain TV directly; held Home opens Google voice search on release. Screen content is not stored or transmitted; screenshots and gestures are not captured. The tested TV uses English menu labels. Switch off the service in Accessibility to stop the helper; the return dot pauses Home redirection.
 
 ## Preview and validation
 
 Serve this folder with any local static server, then open `preview/`. The browser is a visual reference: it cannot launch Android TV apps or send TV commands. See [validation details](docs/VALIDATION.md) for local and device evidence.
 
-Wallpaper rotation is **not implemented** in 0.6.2. A [ten-image candidate list](docs/WALLPAPER-CANDIDATES.md) is awaiting selection; those original image downloads are not bundled here.
+Wallpaper rotation is **not implemented** in 0.6.4. A [ten-image candidate list](docs/WALLPAPER-CANDIDATES.md) is awaiting selection; those original image downloads are not bundled here.
 
 ## Credits
 

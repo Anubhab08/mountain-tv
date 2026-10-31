@@ -6,8 +6,8 @@ android {
         applicationId 'com.anubhab.mountaintv'
         minSdk 26
         targetSdk 34
-        versionCode 11
-        versionName '0.6.2'
+        versionCode 13
+        versionName '0.6.4'
     }
     buildTypes {
         release { minifyEnabled true; shrinkResources true; proguardFiles getDefaultProguardFile('proguard-android-optimize.txt') }

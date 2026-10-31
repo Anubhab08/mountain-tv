@@ -46,6 +46,7 @@ function openDialog(dialog) {
 function openGoogleSearch(){toast("On TV, Search opens Google’s existing search for speaking or typing. Google shows the streaming results. This browser preview cannot open TV apps.");}
 document.querySelector("#search-button").addEventListener("click",openGoogleSearch);
 document.querySelector("#stock-home-button").addEventListener("click",()=>toast("On TV, this dot opens the original home and pauses the Home helper. Open Mountain TV from Apps to resume. This preview cannot switch TV launchers."));
+document.querySelector("#bluetooth-button").addEventListener("click",()=>toast("On TV, this opens Remotes & Accessories. Bluetooth settings cannot open in this browser preview."));
 document.querySelector("#wifi-button").addEventListener("click",()=>openDialog(wifiDialog));
 document.querySelectorAll(".close-dialog").forEach(button=>button.addEventListener("click",()=>button.closest("dialog").close()));
 document.querySelectorAll("dialog").forEach(dialog=>dialog.addEventListener("click",event=>{

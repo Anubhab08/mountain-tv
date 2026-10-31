@@ -1,4 +1,4 @@
 <resources>
     <string name="home_helper_label">Mountain TV Home helper</string>
-    <string name="home_helper_description">Open Mountain TV when the original TV home appears. Only window names from the original launcher and Google search are checked. Screen text, remote keys, streaming apps and account data are not read or sent. The small dot pauses redirection; open Mountain TV from Apps to resume.</string>
+    <string name="home_helper_description">Handle short Home presses directly to avoid briefly showing the original home; hold Home for Google voice search. Other remote buttons pass through. Open Mountain TV when the original TV home appears if the TV does not deliver Home keys. After you click Bluetooth, inspect only the TV Settings menu for up to eight seconds and select Remotes &amp; Accessories once. Other apps are not inspected. No screen content is stored or sent, and key events are not stored or sent. Gestures and screenshots are not captured. The small dot pauses home redirection; open Mountain TV from Apps to resume.</string>
 </resources>

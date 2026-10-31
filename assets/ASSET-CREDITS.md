@@ -49,3 +49,7 @@ See `brand-marks/CREDITS.md` and its source manifest for the SVG marks and publi
 ## Additional installed app banners
 
 See `installed-banners/CREDITS.md`. Netflix, ZEE5, Spotify, Google Play Movies, Live TV and Play Store artwork comes from the installed publishers’ app resources.
+
+## Utility icons
+
+Wi-Fi and Bluetooth are custom geometric vectors with an Apple-style menu-bar appearance, drawn directly in Android Canvas and mirrored as SVG paths in the browser preview. Wi-Fi uses three concentric bands and a solid dot; Bluetooth uses a compact, optically matched rune.

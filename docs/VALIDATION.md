@@ -1,5 +1,17 @@
 # Validation
 
+## Version 0.6.4 — 31 October 2026
+
+The user approved Home-key access, and version 0.6.4 / code 13 was installed on the SWTV-20AE. The user tested the physical remote from an app and confirmed Mountain TV opens directly. Injected ADB Home events still enter the vendor system route, so injected-event timing is not claimed as evidence of the physical-remote result.
+
+Native Home-role selection was tried reversibly; this firmware continued resolving Home to Google’s priority-2 launcher. The original Google Home role was restored. The helper now consumes short Home gestures before the stock launcher opens, with held Home routed to Google voice search on release. Cancelled, repeated and orphaned key sequences are covered by the added policy tests. The window-event fallback remains for firmware that does not deliver Home keys. No system-wide animation settings or launcher packages were changed.
+
+`testDebugUnitTest lintDebug assembleDebug` passed: all 15 tests, zero lint errors and two existing warnings. APK signature verified. Matching Apple-style custom utility vectors were installed and visually checked on the TV. Wi-Fi opened NetworkActivity; Bluetooth opened native Remotes & Accessories; Search opened Google’s existing typing interface. The dot paused redirection and retained the original home after a Home press; reopening Mountain TV resumed the helper. No pairing or network changes were made. Current helper capabilities are 9; key events are not stored or transmitted. Home hold/voice, reboot and long-term vendor behavior were not freshly verified.
+
+## Version 0.6.3
+
+On 31 October 2026, `testDebugUnitTest lintDebug assembleDebug` passed: 11 tests, zero lint errors and two existing TV warnings. Signature verification passed. Version 0.6.3 / code 12 was installed on the SWTV-20AE. Remote navigation reached Bluetooth beside Wi-Fi; clicking it opened the native Remotes & Accessories side panel. No pairing or Bluetooth toggle was invoked. Back returned through Settings, and Home returned to Mountain TV. The one-shot lookup consumed its request and restored window-state-only events after selecting the menu. Content-retrieval capability 1 is used solely for this Settings lookup.
+
 ## Version 0.6.2
 
 Packaging checks were rerun on 29 October 2026. `testDebugUnitTest lintDebug assembleDebug` passed: all 11 tests passed, zero lint errors and two intentional TV warnings (banner vector rasterization and fixed landscape). The supplied APK signature verifies. Private keys, API credentials, local toolchains, device diagnostics and build caches are excluded.

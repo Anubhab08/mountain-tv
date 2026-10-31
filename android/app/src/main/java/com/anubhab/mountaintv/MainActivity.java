@@ -50,7 +50,7 @@ public final class MainActivity extends Activity {
     private Typeface font, mediumFont;
     private SharedPreferences prefs;
     private TextView clock;
-    private View wifi, searchButton;
+    private View wifi, bluetooth, searchButton;
     private View firstTile, stockHomeButton;
     private LinearLayout dock;
     private FrameLayout scene;
@@ -124,6 +124,8 @@ public final class MainActivity extends Activity {
         status.addView(stockHomeButton,new LinearLayout.LayoutParams(dp(32),dp(42)));
         wifi = statusControl("wifi","Wi-Fi settings",this::openWifi);
         status.addView(wifi,new LinearLayout.LayoutParams(dp(34),dp(42)));
+        bluetooth = statusControl("bluetooth","Remotes & accessories",this::openAccessories);
+        status.addView(bluetooth,new LinearLayout.LayoutParams(dp(34),dp(42)));
         clock = text("",14,Color.WHITE); clock.setPadding(dp(12),0,0,0);
         status.addView(clock,new LinearLayout.LayoutParams(-2,dp(42)));
         top.addView(status,new FrameLayout.LayoutParams(-2,dp(42),Gravity.END|Gravity.CENTER_VERTICAL));
@@ -207,6 +209,8 @@ public final class MainActivity extends Activity {
         searchButton.setNextFocusDownId(firstTile.getId()); wifi.setNextFocusDownId(firstTile.getId()); stockHomeButton.setNextFocusDownId(firstTile.getId());
         searchButton.setNextFocusRightId(stockHomeButton.getId()); stockHomeButton.setNextFocusLeftId(searchButton.getId());
         stockHomeButton.setNextFocusRightId(wifi.getId()); wifi.setNextFocusLeftId(stockHomeButton.getId());
+        wifi.setNextFocusRightId(bluetooth.getId()); bluetooth.setNextFocusLeftId(wifi.getId());
+        bluetooth.setNextFocusRightId(bluetooth.getId()); bluetooth.setNextFocusDownId(firstTile.getId());
         View target=focusedTile==null ? firstTile : focusedTile;
         target.post(target::requestFocus);
     }
@@ -341,6 +345,16 @@ public final class MainActivity extends Activity {
         if (!startSafely(new Intent(Settings.ACTION_WIFI_SETTINGS))) {
             if (!startSafely(new Intent(Settings.ACTION_SETTINGS))) toast("Network settings aren't available on this TV.");
         }
+    }
+
+    private void openAccessories() {
+        // Prefer a firmware-provided native accessories shortcut when available.
+        if (startSafely(new Intent(Settings.ACTION_BLUETOOTH_SETTINGS))) return;
+        boolean helperReady=HomeHelperService.prepareAccessories();
+        if (!startSafely(new Intent(Settings.ACTION_SETTINGS))) {
+            HomeHelperService.cancelAccessories();
+            toast("Remotes & accessories settings aren't available on this TV.");
+        } else if(!helperReady) toast("Select Remotes & Accessories. Enable the Home helper in Accessibility for the direct shortcut.");
     }
 
     private View statusControl(String symbol,String description,Runnable action) {
@@ -517,7 +531,8 @@ public final class MainActivity extends Activity {
     private int dp(float value) { return Math.round(value * getResources().getDisplayMetrics().density); }
     private void toast(String value) { Toast.makeText(this,value,Toast.LENGTH_LONG).show(); }
 
-    @Override protected void onResume() { super.onResume(); HomeHelperState.resume(this); active = true; refreshApps(); handler.removeCallbacks(clockTick); clockTick.run(); }
+    @Override protected void onResume() { super.onResume();
+        HomeHelperService.cancelAccessories(); HomeHelperState.resume(this); active = true; refreshApps(); handler.removeCallbacks(clockTick); clockTick.run(); }
     @Override protected void onPause() { active = false; handler.removeCallbacks(clockTick); super.onPause(); }
     @Override protected void onDestroy() { backdropGeneration++; effects.shutdownNow(); handler.removeCallbacksAndMessages(null); super.onDestroy(); }
     @Override public void onWindowFocusChanged(boolean focused) {
@@ -543,10 +558,19 @@ public final class MainActivity extends Activity {
             paint.setColor(Color.WHITE); paint.setStyle(Paint.Style.STROKE); paint.setStrokeWidth(1.6f); paint.setStrokeCap(Paint.Cap.ROUND); paint.setStrokeJoin(Paint.Join.ROUND);
             if (kind.equals("search")) { canvas.drawCircle(10,10,6,paint); canvas.drawLine(14.6f,14.6f,21,21,paint); }
             else if (kind.equals("dot")) { paint.setStyle(Paint.Style.FILL); canvas.drawCircle(12,12,1.6f,paint); }
-            else if (kind.equals("wifi")) { Path path=new Path(); path.moveTo(3,9); path.quadTo(12,2,21,9);
-                path.moveTo(6.5f,12.5f); path.quadTo(12,8.2f,17.5f,12.5f);
-                path.moveTo(10,16); path.quadTo(12,14.7f,14,16); canvas.drawPath(path,paint);
-                paint.setStyle(Paint.Style.FILL); canvas.drawCircle(12,19,.9f,paint); }
+            else if (kind.equals("bluetooth")) {
+                paint.setStrokeWidth(2f);
+                Path path=new Path(); path.moveTo(7.2f,7.2f); path.lineTo(16.6f,16.6f);
+                path.lineTo(12,21.2f); path.lineTo(12,2.8f); path.lineTo(16.6f,7.4f);
+                path.lineTo(7.2f,16.8f); canvas.drawPath(path,paint);
+            }
+            else if (kind.equals("wifi")) {
+                paint.setStrokeWidth(2.2f); paint.setStrokeCap(Paint.Cap.BUTT);
+                for(float radius:new float[]{12.6f,8.5f,4.4f}) {
+                    canvas.drawArc(new android.graphics.RectF(12-radius,18.3f-radius,12+radius,18.3f+radius),220,100,false,paint);
+                }
+                paint.setStyle(Paint.Style.FILL); canvas.drawCircle(12,18.3f,1.45f,paint);
+            }
             else { Path path = new Path(); path.moveTo(1,20); path.lineTo(9,5); path.lineTo(14,13); path.lineTo(17,9); path.lineTo(23,20); path.close(); canvas.drawPath(path,paint); }
             canvas.restore();
         }
